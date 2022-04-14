@@ -6,7 +6,7 @@ public class Main {
         String st = "Изучение Java - это просто!";
         Study study = new Study(st);
 
-        //System.out.println(study.printCourse());
+        System.out.println(study.printCourse());
 
         /* Exercise 2 */
         Demo demo = new Demo();

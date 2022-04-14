@@ -12,15 +12,15 @@ public class Main {
         int varTemp;
 
         /* Exercise 1 */
-        array = new int[]{2,4,2,66,4,7,7};
+        array = new int[]{2,4,6,66,2,4,7500};
 
-        System.out.println(sortedAscending(array) ? "Sorted ascending" : " Not sorted ascending");
+        System.out.println(sortedAscending(array) ? "Sorted ascending" : "Not sorted ascending");
 
         /* Exercise 2 */
-        //arraysVivod();
+        arraysVivod();
 
         /* Exercise 3 */
-        //arraysChange(array);
+        arraysChange(array);
 
         /* Exercise 4 */
         arrayUnique(array);
