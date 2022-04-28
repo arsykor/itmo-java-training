@@ -18,7 +18,7 @@ public class Main {
 
         /* Exercise 4 */
         //twoThreads(); //попытка 1 - неудачная.
-        twoThreadsTwo(); //попытка 2 - удачная. Пример подсотрел на Metanit - переделал под данную задачу.
+        twoThreadsTwo(); //попытка 2 - удачная. Пример подмсотрел на Metanit - переделал под данную задачу.
     }
 
     private static void twoThreadsTwo() {
