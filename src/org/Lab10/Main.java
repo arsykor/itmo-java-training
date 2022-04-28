@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
         /* Exercise 1 */
 
-        File file = new File("files/file2.txt");
+        File file = new File("files/text.txt");
 //        ArrayList<String> strings = stringsList(file);
 //
 //        for (int i = 0; i < strings.size(); i++) {
 //            System.out.println(strings.get(i));
 //        }
-        //stringsList(file);
+//        stringsList(file);
 
         /* Exercise 2 */
 //        String st = "This string is supposed to be in text.txt";
@@ -24,9 +24,31 @@ public class Main {
 //        writeToFile(file, st, clearBeforeImport);
 
         /* Exercise 3 */
-        File file1 = new File("files/file1.txt");
-        File file2 = new File("files/file2.txt");
-        joinFiles(file1, file2);
+//        File file1 = new File("files/file1.txt");
+//        File file2 = new File("files/file2.txt");
+//        joinFiles(file1, file2);
+
+        /* Exercise 4 */
+        changeNoLettersAndNumbers(file);
+    }
+
+    private static void changeNoLettersAndNumbers(File file) {
+        ArrayList<String> strings = stringsList(file);
+        boolean clearBeforeImport = false;
+
+        for (String s : strings) {
+            StringBuilder sb = new StringBuilder(s);
+            removeBlankSpace(sb);
+
+            for (int i = 0; i < sb.length(); i++) {
+                if (!Character.isDigit(sb.charAt(i)) && !Character.isLetter(sb.charAt(i))){
+                    sb.replace(i,i+1,"$");
+                }
+            }
+
+            writeToFile(file, sb.toString(), clearBeforeImport);
+            clearBeforeImport = true;
+        }
     }
 
     private static void joinFiles(File file1, File file2) {
@@ -72,5 +94,15 @@ public class Main {
             System.out.println("Error: " + e.getMessage());
         }
         return strings;
+    }
+
+    static void removeBlankSpace(StringBuilder sb) {
+        int j = 0;
+        for(int i = 0; i < sb.length(); i++) {
+            if (!Character.isWhitespace(sb.charAt(i))) {
+                sb.setCharAt(j++, sb.charAt(i));
+            }
+        }
+        sb.delete(j, sb.length());
     }
 }

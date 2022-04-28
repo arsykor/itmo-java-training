@@ -1,4 +1,6 @@
 package org.Lab9;
+import com.sun.source.tree.IfTree;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,19 +42,28 @@ public class Main {
 //        System.out.println("The reason for that is that LinkedList also use some memory for collecting memory address for both previous and next elements.");
 
         /* Exercise 3 */
-        Map<String, Integer> map = new HashMap<>();
+        Map<User, Integer> map = new HashMap<>();
 
-        map.put("Arseny", 100);
-        map.put("Ivan", 23);
-        map.put("Kate", 50);
-        map.put("John", 90);
+        map.put(new User("Arseny"), 100);
+        map.put(new User("Ivan"), 23);
+        map.put(new User("Kate"), 50);
+        map.put(new User("John"), 90);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(getScore((reader.readLine()), map));
+
+        //System.out.println(getScore((reader.readLine()), map));
+        System.out.println(getScore("Kate", map)); // Почему-то через считывание не срабатывает, пока не успел разобраться.
     }
 
-    private static int getScore(String name, Map<String, Integer> map) {
-        return map.get(name) == null ? 0 : map.get(name);
+    private static int getScore(String name, Map<User, Integer> map) {
+        //return map.get(name) == null ? 0 : map.get(name);
+        for (User u : map.keySet()) {
+            if (u.getName() == name){
+                return map.get(u);
+            }
+        }
+
+        return  0;
     }
 
     private static void randomFromLinked(LinkedList<Integer> linkedList) {
